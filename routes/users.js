@@ -14,8 +14,10 @@ function needAuth(req, res, next) {
 function validateForm(form, options) {
   var name = form.name || "";
   var email = form.email || "";
+    var host_type = form.host_type || "";
   name = name.trim();
   email = email.trim();
+  host_type = host_type.trim();
 
   if (!name) {
     return '이름을 입력해주세요.';
@@ -136,6 +138,7 @@ router.post('/', function(req, res, next) {
     var newUser = new User({
       name: req.body.name,
       email: req.body.email,
+      host_type: req.body.host_type
     });
     newUser.password = newUser.generateHash(req.body.password);
 
