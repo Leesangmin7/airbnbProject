@@ -14,15 +14,46 @@ function needAuth(req, res, next) {
 
 function validateForm(form, options) {
   var title = form.title || "";
+  var city = form.city || "";
+  var human = form.human || "";
+  var charge = form.charge || "";
+  var address = form.address || "";
+  var convenience = form.convenience || "";
+  var rule = form.rule || "";
   var body = form.body || "";
+
   title = title.trim();
 
   if (!title) {
-    return '제목을 입력해주세요.';
+    return '숙소 이름을 입력해주세요.';
+  }
+
+  if (!city) {
+    return '도시를 입력해주세요.';
+  }
+  
+  if (!human) {
+    return '수용인원을 입력해주세요.';
+  }
+
+  if (!charge) {
+    return '요금을 입력해주세요.';
+  }
+
+  if (!address) {
+    return '주소를 입력해주세요.';
+  }
+
+  if (!convenience) {
+    return '편의 시설을 입력해주세요.';
+  }
+
+  if (!rule) {
+    return '이용규칙을 입력해주세요.';
   }
 
   if (!body) {
-    return '내용을 입력해주세요.';
+    return '숙소에 대한 간단한 설명을 입력해주세요.';
   }
 
   return null;
@@ -129,6 +160,7 @@ router.post('/', function(req, res, next) {
     body: req.body.body,
      
     owner: {
+    
       _id: req.user._id,
       username: req.user.name
     }

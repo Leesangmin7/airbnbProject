@@ -1,5 +1,3 @@
-
-
 var mongoose = require('mongoose'),
     bcrypt = require('bcryptjs'),
     Schema = mongoose.Schema;
@@ -10,7 +8,9 @@ var schema = new Schema({
   password: {type: String},
   createdAt: {type: Date, default: Date.now},
   host_type: {type: String, require: true, index: true, unique:true},
-  facebook: {id: String, token: String, photo: String}
+  facebook: {id: String, token: String, photo: String},
+  manager: {type: String, required: true, default: "no"}
+
 }, {
   toJSON: { virtuals: true},
   toObject: {virtuals: true}

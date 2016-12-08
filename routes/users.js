@@ -43,12 +43,23 @@ function validateForm(form, options) {
 }
 
 /* GET users listing. */
-router.get('/', needAuth, function(req, res, next) {
+router.get('/:id/index', function(req, res, next) {
   User.find({}, function(err, users) {
     if (err) {
       return next(err);
     }
-    res.render('users/index', {users: users});
+    User.findById(req.params.id, function(err, user){
+      if(err) {
+        return next(err);
+      }
+      if(user.manager === "yes"){
+        res.render('users/index', {users: users});
+      } else {
+        req.flash('danger', '관리자 권한이 없습니다');
+        return res.redirect('back');
+      }
+    });
+     
   });
 });
 
