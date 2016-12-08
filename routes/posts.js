@@ -75,8 +75,13 @@ router.put('/:id', function(req, res, next) {
 
     post.title = req.body.title;
     post.city = req.body.city;
+     post.human = req.body.human;
     post.charge = req.body.charge;
+    post.address = req.body.address;
+    post.convenience = req.body.convenience;
+    post.rule = req.body.rule;
     post.body = req.body.body;
+    
     
     post.save(function(err) {
       if (err) {
@@ -116,8 +121,13 @@ router.post('/', function(req, res, next) {
   var newPost = new Post({
     title: req.body.title,
     city: req.body.city,
+    human : req.body.human,
     charge : req.body.charge,
+    address : req.body.address,
+    convenience : req.body.convenience,
+    rule : req.body.rule,
     body: req.body.body,
+     
     owner: {
       _id: req.user._id,
       username: req.user.name

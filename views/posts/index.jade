@@ -11,7 +11,7 @@ block content
           th 숙소 이름
           th 도시
           th 숙소 요금
-           
+          th 수용 인원
           th 작성일시
           th 
       tbody
@@ -23,6 +23,7 @@ block content
               a(href='/posts/#{post._id}')= post.title
             td= post.city
             td= post.charge
+            td= post.human
             td= moment(post.createdAt).format('YYYY-MM-DD HH:mm:ss')
             td
               a.btn.btn-xs.btn-default(href='/posts/#{post._id}/edit') 수정

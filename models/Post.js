@@ -8,7 +8,12 @@ var mongoose = require('mongoose'),
 var schema = new Schema({
   title: {type: String, trim: true},
   city : {type: String},
+  human : {type : String},
   charge : {type : String},
+  address : {type : String},
+  convenience : {type : String},
+  rule : {type : String},
+ 
   body: {type: String},
 
   owner: {

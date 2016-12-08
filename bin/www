@@ -4,7 +4,6 @@
  * Module dependencies.
  */
 
-// 익스프레스 핸들러 생성!
 var express = require('express');
 var app = express();
 
@@ -32,9 +31,9 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
-// Socket.io 객체 생성.
+// Socket.io생성
 var io = require('socket.io')(server);
-require('../app')(app, io);     // app.js 실행
+require('../app')(app, io);    
 require('../socket')(app, io);
 
 /**
