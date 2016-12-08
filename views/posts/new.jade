@@ -6,10 +6,17 @@ block content
     form(action='/posts', method='POST')
       .form-group
         label(for='title') Title
-        input.form-control(type='text', id='title', name='title', placeholder='Title')
+        input.form-control(type='text', id='title', name='title', placeholder='숙소 이름을 입력하세요')
       .form-group
-        label(for='body') Body
-        input.form-control(type='text', id='body', name='body', placeholder='Body')
+        label(for='body') City
+        input.form-control(type='text', id='city', name='city', placeholder='도시를 입력하세요')
+      .form-group
+        label(for='body') Charge
+        input.form-control(type='text', id='charge', name='charge', placeholder='숙소 요금을 입력하세요')
+      .form-group
+        label(for='body') introduction
+        input.form-control(type='text', id='body', name='body', placeholder='숙소에 대한 간단한 설명을 해주세요')
+   
       div.form-actions
         a.btn.btn-default(href='javascript:window.history.back();') 뒤로 
         | 

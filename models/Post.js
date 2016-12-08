@@ -1,10 +1,16 @@
+
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;
 
+
+
 var schema = new Schema({
   title: {type: String, trim: true},
+  city : {type: String},
+  charge : {type : String},
   body: {type: String},
+
   owner: {
     username: {type: String},
     _id: {type: ObjectId}

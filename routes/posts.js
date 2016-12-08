@@ -74,6 +74,8 @@ router.put('/:id', function(req, res, next) {
     }
 
     post.title = req.body.title;
+    post.city = req.body.city;
+    post.charge = req.body.charge;
     post.body = req.body.body;
     
     post.save(function(err) {
@@ -113,6 +115,8 @@ router.post('/', function(req, res, next) {
   }
   var newPost = new Post({
     title: req.body.title,
+    city: req.body.city,
+    charge : req.body.charge,
     body: req.body.body,
     owner: {
       _id: req.user._id,
