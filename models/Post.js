@@ -3,8 +3,6 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;
 
-
-
 var schema = new Schema({
   title: {type: String, trim: true},
   city : {type: String},
@@ -25,6 +23,8 @@ var schema = new Schema({
   toJSON: { virtuals: true},
   toObject: {virtuals: true}
 });
+
+schema.index({address: "text"});
 
 var Post = mongoose.model('Post', schema);
 
